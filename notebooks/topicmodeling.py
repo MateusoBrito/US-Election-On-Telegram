@@ -26,7 +26,7 @@ def run_topic_modeling():
     aspect_model1 = PartOfSpeech("en_core_web_sm") #extrai apenas classes gramaticas específicas(como substantivos e adjetivos)
     aspect_model2 = [KeyBERTInspired(top_n_words=10), MaximalMarginalRelevance(diversity=.3)] #gera uma lista das palavras-chaves mais diversificada, evitando termos semelhantes
     
-    minhas_stopwords = ['algum', 'soltar', 'acontecer', 'ficar', 'outro','viar','conectar','sugar','jogar','rapaz']
+    minhas_stopwords = []
 
     #vectorizer = TfidfVectorizer(stop_words=minhas_stopwords)
     num = 10 
