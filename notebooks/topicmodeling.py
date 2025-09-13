@@ -15,7 +15,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 def run_topic_modeling():
     save_data = 'data_topic_modeling'
 
-    df = pd.read_csv('dataFrame1.csv') # carrega as transcrições já pré-processadas
+    df = pd.read_csv("../data/df_teste.csv") # carrega os títulos já pré-processados
     
     use_df = df[df['clean_text'].notna()] # elimina as tuplas que forem nulas nesta coluna
     use_df = use_df.reset_index(drop=True)
@@ -23,16 +23,16 @@ def run_topic_modeling():
     main_representation = KeyBERTInspired() #extrai as palavras chaves principais
 
     # Additional ways of representing a topic
-    aspect_model1 = PartOfSpeech("pt_core_news_sm") #extrai apenas classes gramaticas específicas(como substantivos e adjetivos)
+    aspect_model1 = PartOfSpeech("en_core_web_sm") #extrai apenas classes gramaticas específicas(como substantivos e adjetivos)
     aspect_model2 = [KeyBERTInspired(top_n_words=10), MaximalMarginalRelevance(diversity=.3)] #gera uma lista das palavras-chaves mais diversificada, evitando termos semelhantes
     
     minhas_stopwords = ['algum', 'soltar', 'acontecer', 'ficar', 'outro','viar','conectar','sugar','jogar','rapaz']
 
     #vectorizer = TfidfVectorizer(stop_words=minhas_stopwords)
-    num = 5 
+    num = 10 
     params = {
         'nr_topics': num, # número de tópicos
-        'language': 'portuguese', 
+        'language': 'english', 
         'calculate_probabilities': True, # % de um doc em tópicos
         'verbose': False, # explicação detalhada do processo
         'top_n_words': 10, # quantas palavras em cada tópico
