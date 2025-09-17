@@ -11,6 +11,8 @@ from bertopic.representation import KeyBERTInspired
 from bertopic.representation import PartOfSpeech
 from bertopic.representation import MaximalMarginalRelevance
 from sklearn.feature_extraction.text import TfidfVectorizer
+from sentence_transformers import SentenceTransformer
+
 
 def run_topic_modeling():
     save_data = 'data_topic_modeling'
@@ -19,6 +21,8 @@ def run_topic_modeling():
     
     use_df = df[df['clean_text'].notna()] # elimina as tuplas que forem nulas nesta coluna
     use_df = use_df.reset_index(drop=True)
+
+    embedding_model = SentenceTransformer("all-MiniLM-L6-v2")
 
     main_representation = KeyBERTInspired() #extrai as palavras chaves principais
 
@@ -33,8 +37,9 @@ def run_topic_modeling():
     params = {
         'nr_topics': num, # número de tópicos
         'language': 'english', 
+        'embedding_model': embedding_model,
         'calculate_probabilities': True, # % de um doc em tópicos
-        'verbose': False, # explicação detalhada do processo
+        'verbose': True, # explicação detalhada do processo
         'top_n_words': 10, # quantas palavras em cada tópico
         'umap_model': UMAP(n_neighbors=10, 
                   n_components=5, 
