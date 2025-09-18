@@ -12,17 +12,21 @@ from bertopic.representation import PartOfSpeech
 from bertopic.representation import MaximalMarginalRelevance
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sentence_transformers import SentenceTransformer
+import numpy as np
 
 
 def run_topic_modeling():
     save_data = 'data_topic_modeling'
 
-    df = pd.read_csv("../data/df_teste.csv") # carrega os títulos já pré-processados
+    df = pd.read_csv("../data/preprocessed_english_titles.csv") # carrega os títulos já pré-processados
     
-    use_df = df[df['clean_text'].notna()] # elimina as tuplas que forem nulas nesta coluna
-    use_df = use_df.reset_index(drop=True)
+    use_df = df[df['clean_text'].notna()].reset_index(drop=True)
+    docs = use_df['clean_text'].tolist()    
+    
+    embeddings = np.load("embeddings.npy")
+    print(f"Dados e {len(embeddings)} embeddings carregados com sucesso.")
 
-    embedding_model = SentenceTransformer("all-MiniLM-L6-v2")
+    assert len(docs) == len(embeddings), "O número de textos e embeddings não corresponde!"
 
     main_representation = KeyBERTInspired() #extrai as palavras chaves principais
 
@@ -37,7 +41,6 @@ def run_topic_modeling():
     params = {
         'nr_topics': num, # número de tópicos
         'language': 'english', 
-        'embedding_model': embedding_model,
         'calculate_probabilities': True, # % de um doc em tópicos
         'verbose': True, # explicação detalhada do processo
         'top_n_words': 10, # quantas palavras em cada tópico
@@ -63,7 +66,6 @@ def run_topic_modeling():
     print(params)
     #print(minhas_stopwords)
 
-    topics, probs = model.fit_transform(use_df['clean_text']) # o modelo é treinado com os textos da coluna clean_text
-
+    topics, probs = model.fit_transform(docs, embeddings)
     #model.save(f"./topicmodeling/{save_data}/kmeans_1", serialization="pickle") # o objeto do modelo treinado é salvo como pickle
     return model, probs, topics
