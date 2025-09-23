@@ -3,3 +3,4 @@ data/videos_info.csv
 notebooks/embeddings.npy
 data/preprocessed_english_titles.csv
 data/df_teste.csv
+data/youtube_titulos_saida.csv
