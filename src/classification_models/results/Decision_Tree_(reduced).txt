@@ -1,0 +1,60 @@
+=== Decision Tree (reduced) ===
+Melhores parâmetros: {'criterion': 'gini', 'max_depth': None, 'max_features': 'sqrt', 'min_samples_leaf': 4, 'min_samples_split': 2, 'splitter': 'random'}
+
+
+--- Fold 1 ---
+              precision    recall  f1-score   support
+
+           0      0.749     0.726     0.737      5373
+           1      0.822     0.838     0.830      8099
+
+    accuracy                          0.793     13472
+   macro avg      0.785     0.782     0.784     13472
+weighted avg      0.793     0.793     0.793     13472
+
+
+--- Fold 2 ---
+              precision    recall  f1-score   support
+
+           0      0.748     0.744     0.746      5374
+           1      0.830     0.833     0.832      8098
+
+    accuracy                          0.798     13472
+   macro avg      0.789     0.788     0.789     13472
+weighted avg      0.797     0.798     0.797     13472
+
+
+--- Fold 3 ---
+              precision    recall  f1-score   support
+
+           0      0.748     0.736     0.742      5373
+           1      0.827     0.835     0.831      8098
+
+    accuracy                          0.796     13471
+   macro avg      0.787     0.786     0.787     13471
+weighted avg      0.795     0.796     0.796     13471
+
+
+--- Fold 4 ---
+              precision    recall  f1-score   support
+
+           0      0.719     0.744     0.731      5373
+           1      0.826     0.807     0.817      8098
+
+    accuracy                          0.782     13471
+   macro avg      0.773     0.776     0.774     13471
+weighted avg      0.784     0.782     0.783     13471
+
+
+--- Fold 5 ---
+              precision    recall  f1-score   support
+
+           0      0.731     0.719     0.725      5373
+           1      0.815     0.824     0.820      8098
+
+    accuracy                          0.782     13471
+   macro avg      0.773     0.771     0.772     13471
+weighted avg      0.781     0.782     0.782     13471
+
+
+Média F1 Macro: 0.781 ± 0.007

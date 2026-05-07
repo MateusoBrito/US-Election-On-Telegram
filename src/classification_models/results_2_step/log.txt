@@ -1,0 +1,79 @@
+[2025-11-18 00:21:09] Carregando dataframe completo...
+[2025-11-18 00:21:14] 673587 linhas carregadas. 410013 linhas de interesse.
+[2025-11-18 00:21:14] Carregando dataframe de treino...
+[2025-11-18 00:21:40] Carregando dataframe completo...
+[2025-11-18 00:21:45] 673587 linhas carregadas. 410013 linhas de interesse.
+[2025-11-18 00:21:45] Carregando dataframe de treino...
+[2025-11-18 00:21:46] 67357 linhas carregadas. 40491 linhas de interesse.
+[2025-11-18 00:21:46] Linhas sem embedding correspondente: 1539
+[2025-11-18 00:21:46] 
+ Rodando modelo: Logistic Regression (original)
+[2025-11-18 00:23:14] Carregando dataframe completo...
+[2025-11-18 00:23:19] 673587 linhas carregadas. 410013 linhas de interesse.
+[2025-11-18 00:23:19] Carregando dataframe de treino...
+[2025-11-18 00:23:19] 67357 linhas carregadas. 40491 linhas de interesse.
+[2025-11-18 00:23:19] Linhas sem embedding correspondente: 1539
+[2025-11-18 00:23:20] 
+ Rodando modelo: Logistic Regression (original)
+[2025-11-18 00:32:35] Melhores hiperparâmetros encontrados: {'C': 10, 'class_weight': None, 'solver': 'lbfgs'}
+[2025-11-18 00:39:55] ✅ Finalizado: Logistic Regression (original) | Média F1 Macro: 0.014
+[2025-11-18 00:39:55] 
+ Rodando modelo: Logistic Regression (reduced)
+[2025-11-18 00:40:06] Melhores hiperparâmetros encontrados: {'C': 1, 'class_weight': None, 'solver': 'lbfgs'}
+[2025-11-18 00:40:27] ✅ Finalizado: Logistic Regression (reduced) | Média F1 Macro: 0.009
+[2025-11-18 00:40:27] 
+ Rodando modelo: KNN (original)
+[2025-11-18 00:44:03] Melhores hiperparâmetros encontrados: {'metric': 'manhattan', 'n_neighbors': 5, 'weights': 'distance'}
+[2025-11-18 00:44:33] ✅ Finalizado: KNN (original) | Média F1 Macro: 0.020
+[2025-11-18 00:44:33] 
+ Rodando modelo: KNN (reduced)
+[2025-11-18 00:44:35] Melhores hiperparâmetros encontrados: {'metric': 'manhattan', 'n_neighbors': 5, 'weights': 'distance'}
+[2025-11-18 00:44:36] ✅ Finalizado: KNN (reduced) | Média F1 Macro: 0.022
+[2025-11-18 00:44:36] 
+ Rodando modelo: XGBoost (original)
+[2025-11-18 02:03:16] Carregando dataframe completo...
+[2025-11-18 02:03:21] 673587 linhas carregadas. 410013 linhas de interesse.
+[2025-11-18 02:03:21] Carregando dataframe de treino...
+[2025-11-18 02:03:21] 67357 linhas carregadas. 40491 linhas de interesse.
+[2025-11-18 02:03:21] Linhas sem embedding correspondente: 1539
+[2025-11-18 02:03:37] Carregando dataframe completo...
+[2025-11-18 02:03:42] 673587 linhas carregadas. 410013 linhas de interesse.
+[2025-11-18 02:03:42] Carregando dataframe de treino...
+[2025-11-18 02:03:43] 67357 linhas carregadas. 40491 linhas de interesse.
+[2025-11-18 02:03:43] Linhas sem embedding correspondente: 1539
+[2025-11-18 02:03:43] 
+ Rodando modelo: Logistic Regression (reduced)
+[2025-11-18 02:12:27] Melhores hiperparâmetros encontrados: {'C': 10, 'class_weight': None, 'penalty': 'l2', 'solver': 'saga'}
+[2025-11-18 02:12:37] ✅ Finalizado: Logistic Regression (reduced) | Média F1 Macro: 0.009
+[2025-11-18 02:12:37] 
+ Rodando modelo: KNN (reduced)
+[2025-11-18 02:12:42] Melhores hiperparâmetros encontrados: {'metric': 'manhattan', 'n_neighbors': 5, 'p': 1, 'weights': 'distance'}
+[2025-11-18 02:12:43] ✅ Finalizado: KNN (reduced) | Média F1 Macro: 0.022
+[2025-11-18 02:12:43] 
+ Rodando modelo: XGBoost (reduced)
+[2025-11-18 03:04:37] Carregando dataframe completo...
+[2025-11-18 03:04:42] 673587 linhas carregadas. 410013 linhas de interesse.
+[2025-11-18 03:04:42] Carregando dataframe de treino...
+[2025-11-18 03:04:43] 67357 linhas carregadas. 40491 linhas de interesse.
+[2025-11-18 03:04:43] Linhas sem embedding correspondente: 1539
+[2025-11-18 03:04:43] 
+ Rodando modelo: Logistic Regression (reduced)
+[2025-11-18 03:13:26] Melhores hiperparâmetros encontrados: {'C': 10, 'class_weight': None, 'penalty': 'l2', 'solver': 'saga'}
+[2025-11-18 03:13:35] ✅ Finalizado: Logistic Regression (reduced) | Média F1 Macro: 0.009
+[2025-11-18 03:13:35] 
+ Rodando modelo: KNN (reduced)
+[2025-11-18 03:13:40] Melhores hiperparâmetros encontrados: {'metric': 'manhattan', 'n_neighbors': 5, 'p': 1, 'weights': 'distance'}
+[2025-11-18 03:13:41] ✅ Finalizado: KNN (reduced) | Média F1 Macro: 0.022
+[2025-11-18 03:13:41] 
+ Rodando modelo: Random Forest (reduced)
+[2025-11-18 03:25:32] Melhores hiperparâmetros encontrados: {'class_weight': 'balanced', 'max_depth': None, 'min_samples_split': 5, 'n_estimators': 200}
+[2025-11-18 03:29:25] ✅ Finalizado: Random Forest (reduced) | Média F1 Macro: 0.022
+[2025-11-18 03:29:25] 
+ Rodando modelo: SVM (reduced)
+[2025-11-18 14:28:26] Carregando dataframe completo...
+[2025-11-18 14:28:32] 673587 linhas carregadas. 410013 linhas de interesse.
+[2025-11-18 14:28:32] Carregando dataframe de treino...
+[2025-11-18 14:28:32] 67357 linhas carregadas. 40491 linhas de interesse.
+[2025-11-18 14:28:32] Linhas sem embedding correspondente: 1539
+[2025-11-18 14:28:32] 
+ Rodando modelo: MultinomialNB (reduced)

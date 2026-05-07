@@ -1,0 +1,15 @@
+[2025-11-16 18:47:14] Carregando dataframe completo...
+[2025-11-16 18:47:19] 673587 linhas carregadas.
+[2025-11-16 18:47:19] Carregando dataframe de treino...
+[2025-11-16 18:47:20] 67357 linhas carregadas.
+[2025-11-16 18:47:20] Linhas sem embedding correspondente: 0
+[2025-11-16 18:47:20] 
+ Rodando modelo: RF (original)
+[2025-11-16 18:59:22] Melhores hiperparâmetros encontrados: {'class_weight': 'balanced', 'max_depth': 10, 'min_samples_split': 5, 'n_estimators': 200}
+[2025-11-16 19:08:23] ✅ Finalizado: RF (original) | Média F1 Macro: 0.716
+[2025-11-16 19:08:23] 
+ Rodando modelo: RF (reduced)
+[2025-11-16 19:10:47] Melhores hiperparâmetros encontrados: {'class_weight': 'balanced', 'max_depth': None, 'min_samples_split': 5, 'n_estimators': 200}
+[2025-11-16 19:13:19] ✅ Finalizado: RF (reduced) | Média F1 Macro: 0.812
+[2025-11-16 19:13:19] 
+ Rodando modelo: SVM (original)

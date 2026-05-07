@@ -1,0 +1,31 @@
+[2025-11-13 23:56:09] Carregando dataframe completo...
+[2025-11-13 23:56:14] 673587 linhas carregadas.
+[2025-11-13 23:56:14] Carregando dataframe de treino...
+[2025-11-13 23:56:14] 67357 linhas carregadas.
+[2025-11-13 23:56:15] Linhas sem embedding correspondente: 0
+[2025-11-13 23:56:15] 
+ Rodando modelo: Decision Tree (original)
+[2025-11-14 00:03:21] Melhores hiperparâmetros encontrados: {'criterion': 'entropy', 'max_depth': 10, 'max_features': None, 'min_samples_leaf': 4, 'min_samples_split': 2, 'splitter': 'best'}
+[2025-11-14 00:05:08] ✅ Finalizado: Decision Tree (original) | Média F1 Macro: 0.622
+[2025-11-14 00:05:08] 
+ Rodando modelo: Decision Tree (reduced)
+[2025-11-14 00:05:26] Melhores hiperparâmetros encontrados: {'criterion': 'gini', 'max_depth': None, 'max_features': 'sqrt', 'min_samples_leaf': 4, 'min_samples_split': 2, 'splitter': 'random'}
+[2025-11-14 00:05:26] ✅ Finalizado: Decision Tree (reduced) | Média F1 Macro: 0.781
+[2025-11-14 00:05:26] 
+ Rodando modelo: Logistic Regression (original)
+[2025-11-14 00:07:14] Melhores hiperparâmetros encontrados: {'C': 0.01, 'class_weight': None, 'penalty': 'l2', 'solver': 'liblinear'}
+[2025-11-14 00:07:38] ✅ Finalizado: Logistic Regression (original) | Média F1 Macro: 0.710
+[2025-11-14 00:07:38] 
+ Rodando modelo: Logistic Regression (reduced)
+[2025-11-14 00:07:39] Melhores hiperparâmetros encontrados: {'C': 0.1, 'class_weight': 'balanced', 'penalty': 'l2', 'solver': 'liblinear'}
+[2025-11-14 00:07:40] ✅ Finalizado: Logistic Regression (reduced) | Média F1 Macro: 0.683
+[2025-11-14 00:07:40] 
+ Rodando modelo: KNN (original)
+[2025-11-14 00:18:19] Melhores hiperparâmetros encontrados: {'metric': 'euclidean', 'n_neighbors': 10, 'weights': 'uniform'}
+[2025-11-14 00:18:27] ✅ Finalizado: KNN (original) | Média F1 Macro: 0.796
+[2025-11-14 00:18:27] 
+ Rodando modelo: KNN (reduced)
+[2025-11-14 00:18:31] Melhores hiperparâmetros encontrados: {'metric': 'manhattan', 'n_neighbors': 25, 'weights': 'distance'}
+[2025-11-14 00:18:34] ✅ Finalizado: KNN (reduced) | Média F1 Macro: 0.811
+[2025-11-14 00:18:34] 
+ Rodando modelo: SVM (original)

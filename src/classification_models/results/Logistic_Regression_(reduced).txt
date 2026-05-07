@@ -1,0 +1,60 @@
+=== Logistic Regression (reduced) ===
+Melhores parâmetros: {'C': 0.1, 'class_weight': 'balanced', 'penalty': 'l2', 'solver': 'liblinear'}
+
+
+--- Fold 1 ---
+              precision    recall  f1-score   support
+
+           0      0.608     0.634     0.620      5373
+           1      0.750     0.728     0.739      8099
+
+    accuracy                          0.691     13472
+   macro avg      0.679     0.681     0.680     13472
+weighted avg      0.693     0.691     0.692     13472
+
+
+--- Fold 2 ---
+              precision    recall  f1-score   support
+
+           0      0.618     0.635     0.627      5374
+           1      0.753     0.740     0.747      8098
+
+    accuracy                          0.698     13472
+   macro avg      0.686     0.688     0.687     13472
+weighted avg      0.700     0.698     0.699     13472
+
+
+--- Fold 3 ---
+              precision    recall  f1-score   support
+
+           0      0.614     0.628     0.621      5373
+           1      0.749     0.738     0.744      8098
+
+    accuracy                          0.694     13471
+   macro avg      0.682     0.683     0.682     13471
+weighted avg      0.695     0.694     0.695     13471
+
+
+--- Fold 4 ---
+              precision    recall  f1-score   support
+
+           0      0.614     0.630     0.622      5373
+           1      0.750     0.737     0.744      8098
+
+    accuracy                          0.695     13471
+   macro avg      0.682     0.684     0.683     13471
+weighted avg      0.696     0.695     0.695     13471
+
+
+--- Fold 5 ---
+              precision    recall  f1-score   support
+
+           0      0.613     0.634     0.623      5373
+           1      0.751     0.734     0.743      8098
+
+    accuracy                          0.694     13471
+   macro avg      0.682     0.684     0.683     13471
+weighted avg      0.696     0.694     0.695     13471
+
+
+Média F1 Macro: 0.683 ± 0.002
