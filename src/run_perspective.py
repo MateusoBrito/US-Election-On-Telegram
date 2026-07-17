@@ -5,9 +5,12 @@ import time
 import numpy as np
 from googleapiclient import discovery
 from googleapiclient.errors import HttpError
+from dotenv import load_dotenv
+load_dotenv()
 
 # --- 1. Configurações ---
-API_KEY = 'AIzaSyBZIpJnnUEdokOyMV8Wg3iPWyWgfJjHKOY' 
+CHAVES_RAW = os.getenv('PERSPECTIVE_API_KEYS', '')
+API_KEY = [key.strip() for key in CHAVES_RAW.split(',')][0]
 INPUT_FILE = 'sample_yt_te_cross_with_topics.csv' 
 OUTPUT_FILE = 'data/videos_with_perspective_scores_60k.csv' 
 TEXT_COLUMN = 'text' 

@@ -6,6 +6,8 @@ from tqdm import tqdm
 from googleapiclient import discovery
 from googleapiclient.errors import HttpError
 from concurrent.futures import ThreadPoolExecutor
+from dotenv import load_dotenv
+load_dotenv()
 
 # --- CONFIGURAÇÕES ---
 INPUT_FILE = 'data/youtube_telegram_cross.csv'
@@ -13,19 +15,11 @@ FINAL_OUTPUT_FILE = 'data/yt_te_toxicity.csv'
 TEXT_COLUMN = 'text'
 ID_COLUMN = 'video_id'
 
-API_KEYS = [
-    'AIzaSyAMv1H-rM08aua3qi7xOh62eCSNutYuWxo',
-    'AIzaSyBZIpJnnUEdokOyMV8Wg3iPWyWgfJjHKOY',
-    'AIzaSyANZ0Lc_tsbZ1w9OAw7zVvH-qPDstBPJjs',
-    'AIzaSyA0CEAAzYpXmEo6_J3-BUnNdIJECoXIT_g',
-    'AIzaSyBXGrSmCx1M87pHPDQrCO7bjIypHyDoNIw',
-    'AIzaSyBcwtISygbpwuMc4uBHXK4daUBFvW8UEZ0',
-    'AIzaSyDrJTo7uTJvtb2okAUpcwp2xvKZ9-eMFVQ',
-    'AIzaSyChuuEMtwi9okB5Ah1JA0WUUzf_6odlQso',
-    'AIzaSyCwCnmujMPzRVd9DvemrOAk_qge-EnRWcc',
-    'AIzaSyCLnc7Wsp6HNn6Ut0TipqOVrkAJ_nTKAw8',
-    'AIzaSyC8YR7GmgRoNrsV5deH5wvrxi_14tAmOBQ'
-]
+CHAVES_RAW = os.getenv('PERSPECTIVE_API_KEYS', '')
+if not CHAVES_RAW:
+    print("ERRO: Nenhuma chave cadastrada na variável PERSPECTIVE_API_KEYS do arquivo .env")
+    exit()
+API_KEYS = [key.strip() for key in CHAVES_RAW.split(',')]
 
 
 def validate_keys(keys_list):
