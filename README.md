@@ -19,47 +19,47 @@ If you use this code or refer to our findings, please cite:
 ```
 US-Election-On-Telegram/
 ├── data/            # Intermediate and processed data (see "Data" section below)
-├── figures/         # Generated plots used in the paper (Figures 1, 3–9)
-├── notebooks/        # End-to-end pipeline, in numbered execution order (see table below)
-├── PreProcessing/    # Text pre-processing utilities (lemmatization, stopword removal, etc.)
-├── src/              # Standalone scripts for toxicity inference and classification
-│   ├── classification_models/   # Random Forest / macro-topic classifier training and inference
-│   ├── perspective_mat.py       # Helper functions for the Perspective API toxicity matrix
-│   ├── run_detoxify.py          # Batch toxicity inference using Detoxify
-│   └── run_perspective.py       # Batch toxicity inference using the Perspective API
-├── lid.176.ftz        # fastText pretrained language-identification model (used for English filtering)
-└── README.md
+├── docs/            # Project documentation and supplementary files
+├── figures/         # Generated plots used in the paper
+├── notebooks/       # Clean, end-to-end pipeline in execution order (01 to 14)
+│   └── archive/     # Legacy & exploratory notebooks from development iterations
+├── reports/         # Generated analysis reports
+├── src/             # Standalone Python scripts & modules
+│   ├── PreProcessing/         # Text pre-processing utilities (lemmatization, stopword removal, etc.)
+│   ├── classification_models/ # Macro-topic classifier training and inference
+│   ├── meu_bertopic.py        # Helper routines for BERTopic customization
+│   ├── perspective_mat.py     # Perspective API toxicity helpers
+│   ├── run_detoxify.py        # Batch toxicity inference using Detoxify
+│   └── run_perspective.py     # Batch toxicity inference using Perspective API
+├── LICENSE
+├── README.md
+└── requirements.txt
 ```
 
 ---
 
 ## Methodology → Code Mapping
 
-The notebooks are numbered to follow the pipeline described in **Section 3** of the paper. Use this table as a guide to find the code behind each step.
+The notebooks have been refactored into a clean 14-step pipeline that follows Section 3 of the paper.
 
-| Paper section | Step | Notebook(s) |
+| Paper section | Step | Notebook(s) / Code |
 |---|---|---|
-| 3.1 – Dataset | Initial exploration of the Blas et al. Telegram dataset | `01_Telegram_dataset_analysis.ipynb` |
-| 3.1 | Splitting/saving data by month | `02_Save_data_month.ipynb`, `03_Analysis_month.ipynb` |
-| 3.1 | Basic descriptive analysis | `04_Basic_Analysis.ipynb` |
-| 3.1.1 – URL-derived dataset construction | Extracting all URLs from messages | `05_Links.ipynb` |
-| 3.1.2 / 3.1.3 – Domain filtering & YouTube video ID selection | Filtering YouTube video URLs | `06_Filtering_Yt_Videos.ipynb` |
-| 3.1.4 – Enrichment via YouTube Data API | Retrieving title, description, statistics | `07_Extracting_infos_yt.ipynb` |
-| 3.1.5 – Final language filtering | Language detection (English-only), using `lid.176.ftz` | `08_English_videos.ipynb` |
-| 3.1.6 – Data pre-processing | Lemmatization, stopword removal, normalization | `09_Pre_processing.ipynb`, `PreProcessing/` |
-| 3.2 – Topic Modeling | Hyperparameter search, sampling, evaluation metrics | `10_Metrics_analysis.ipynb`, `11_TM_parameters.ipynb`, `12_TM_sample.ipynb`, `13_Best_TM.ipynb` |
-| 3.2 | Final BERTopic configuration on 10% sample | `14_TM_parameters.ipynb`, `15_TM_sample.ipynb`, `16_Best_TM.ipynb` |
-| 3.2 | Merging topic-modeling outputs | `14_Merging_tables.ipynb`, `18_Merging_tables.ipynb` |
-| 3.2 | Auxiliary regression/interest analysis | `17_Regression_interest.ipynb` |
-| 3.2 | Temporal exploration of topics | `19_Time_analysis.ipynb` |
-| 3.3 – Classifying the remaining videos | Supervised classifier (kNN baseline, Random Forest) | `20_KNN.ipynb`, `21_Evaluating_classification_models.ipynb`, `src/classification_models/` |
-| 3.2 / 3.3.1 – Macro-topic construction & summarization | Grouping BERTopic topics into macro-topics | `22_Macrotopics.ipynb` |
-| 3.3 | Analyzing macro-topic distribution | `23_Macrotopics_analysis.ipynb`, `24_Topics_analysis.ipynb` |
-| 3.4 – Toxicity estimation | Batch scoring with Perspective API / Detoxify | `src/run_perspective.py`, `src/run_detoxify.py`, `src/perspective_mat.py` |
-| 3.4 / 4.1.2 | Relating toxicity to macro-topics | `23_Macrotopics_perspective.ipynb` |
-| 4 – Results | Final metrics, figures, and tables assembly | `26.ipynb`, `27_Organizando_Resultados.ipynb`, `28.ipynb` |
+| 3.1 – Dataset | Initial dataset architecture & structure | `01_Dataset Architecture.ipynb` |
+| 3.1 | Basic descriptive dataset exploration | `02_Basic_Dataset_Exploration1.ipynb` |
+| 3.1.1 – URL-derived dataset construction | Social media link distribution & study | `03_Social_Media_Links_Study.ipynb` |
+| 3.1.2 / 3.1.3 – Domain filtering & YouTube selection | Filtering YouTube video URLs | `04_Filtering_Yt_Videos.ipynb` |
+| 3.1.4 – Enrichment via YouTube Data API | Retrieving titles, descriptions, statistics | `05_Extracting_infos_yt.ipynb` |
+| 3.1.5 – Final language filtering | Language detection (English-only) | `06_English_videos.ipynb` |
+| 3.1.6 – Data pre-processing | Lemmatization, stopword removal, normalization | `07_Pre_processing.ipynb`, `src/PreProcessing/` |
+| 3.2 – Topic Modeling | BERTopic hyperparameter search & evaluation | `08_TM_parameters.ipynb` |
+| 3.2 | Topic modeling sampling (10% sample) | `09_TM_sample.ipynb` |
+| 3.2 | Optimal BERTopic model training & assignment | `10_Best_TM.ipynb` |
+| 3.2 | Merging topic outputs with full dataset | `11_Merging_tables.ipynb` |
+| 3.3 – Classifying remaining videos | Supervised classifier for macro-topics | `12_Macrotopic_Classifier.ipynb`, `src/classification_models/` |
+| 3.4 & 4 – Results data preparation | Consolidating topics, toxicity, and statistics | `13_Preparing_Results_Data.ipynb` |
+| 4 – Results | Final metrics, figures, and statistical plots assembly | `14_Results_Figures_and_Stats.ipynb` |
 
-> **Note:** Some notebooks share the same prefix number or exist as "copy" versions (e.g., `22_Macrotopics copy.ipynb`). These reflect iterations made during development. The versions referenced above (and listed without "copy" in the filename) correspond to the final results reported in the paper. We plan to clean these up in a future revision of the repository — see [Reproducibility Notes](#reproducibility-notes).
+> **Note:** The notebook pipeline was streamlined from original exploratory versions into a clean sequential structure (`01` through `14`). Legacy, exploratory, and duplicate notebooks from early iterations are stored in `notebooks/archive/`.
 
 ---
 
@@ -89,14 +89,14 @@ pip install -r requirements.txt
 
 ## Reproducibility Notes
 
-This codebase reflects the iterative, exploratory research process behind the paper rather than a polished, one-command pipeline. Notebooks are numbered to approximate the chronological/logical order of the methodology in Section 3, but some steps (particularly topic modeling hyperparameter search) involved multiple rounds of experimentation, reflected in duplicate-numbered or "copy" notebooks.
+The codebase pipeline is organized sequentially from step `01` to `14` to replicate the paper's methodology. 
 
-We are working on a cleaned-up version of this pipeline. Planned improvements:
-- [ ] Add `requirements.txt` / `environment.yml`
-- [ ] Remove duplicate/"copy" notebooks or clearly mark superseded versions
-- [ ] Rename unclear notebooks (`26.ipynb`, `28.ipynb`)
-- [ ] Add `.gitignore` for `__pycache__/` and other build artifacts
-- [ ] Consider Git LFS for `lid.176.ftz` if repository size becomes an issue
+Completed refactoring & repository improvements:
+- [x] Streamline and standardize notebook pipeline (01–14 sequential order)
+- [x] Move legacy/exploratory notebooks to `notebooks/archive/`
+- [x] Organize text pre-processing module under `src/PreProcessing/`
+- [x] Include `requirements.txt`
+- [ ] Add `.gitignore` for `__pycache__/` and build artifacts
 
 If you run into issues reproducing a specific result, please open an issue — we're happy to help clarify any step.
 

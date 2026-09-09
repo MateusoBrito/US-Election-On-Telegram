@@ -1,27 +1,22 @@
 ## Methodology → Code Mapping
 
-The notebooks are numbered to follow the pipeline described in **Section 3** of the paper. Use this table as a guide to find the code behind each step.
+The notebooks have been refactored into a clean 14-step pipeline that follows Section 3 of the paper.
 
-Step | Notebook(s) |
----|---|
-Initial exploration of the Blas et al. Telegram dataset | `01_Dataset Architecture.ipnyb` |
-Basic descriptive analysis | `02_Basic_Dataset_Exploration.ipynb`, `03_Social_Media_Links_Study.ipynb`  |
-Filtering YouTube video URLs | `04_Filtering_Yt_Videos.ipynb` |
-Retrieving title, description, statistics | `05_Extracting_infos_yt.ipynb`
-Language detection (English-only) | `06_English_videos.ipynb` |
-Pre processing| `07_Pre_processing.ipynb`, `PreProcessing/` |
-Hyperparameter search, sampling, evaluation metrics | `10_Metrics_analysis.ipynb`, `11_TM_parameters.ipynb`, `12_TM_sample.ipynb`, `13_Best_TM.ipynb` |
-Final BERTopic configuration on 10% sample | `14_TM_parameters.ipynb`, `15_TM_sample.ipynb`, `16_Best_TM.ipynb` |
-Merging topic-modeling outputs | `14_Merging_tables.ipynb`, `18_Merging_tables.ipynb` |
-Auxiliary regression/interest analysis | `17_Regression_interest.ipynb` |
-Temporal exploration of topics | `19_Time_analysis.ipynb` |
-Supervised classifier (kNN baseline, Random Forest) | `20_KNN.ipynb`, `21_Evaluating_classification_models.ipynb`, `src/classification_models/` |
-Grouping BERTopic topics into macro-topics | `22_Macrotopics.ipynb` |
-Analyzing macro-topic distribution | `23_Macrotopics_analysis.ipynb`, `24_Topics_analysis.ipynb` |
-Batch scoring with Perspective API / Detoxify | `src/run_perspective.py`, `src/run_detoxify.py`, `src/perspective_mat.py` |
-Relating toxicity to macro-topics | `23_Macrotopics_perspective.ipynb` |
-Final metrics, figures, and tables assembly | `26.ipynb`, `27_Organizando_Resultados.ipynb`, `28.ipynb` |
+| Paper section | Step | Notebook(s) / Code |
+|---|---|---|
+| 3.1 – Dataset | Initial dataset architecture & structure | `01_Dataset Architecture.ipynb` |
+| 3.1 | Basic descriptive dataset exploration | `02_Basic_Dataset_Exploration1.ipynb` |
+| 3.1.1 – URL-derived dataset construction | Social media link distribution & study | `03_Social_Media_Links_Study.ipynb` |
+| 3.1.2 / 3.1.3 – Domain filtering & YouTube selection | Filtering YouTube video URLs | `04_Filtering_Yt_Videos.ipynb` |
+| 3.1.4 – Enrichment via YouTube Data API | Retrieving titles, descriptions, statistics | `05_Extracting_infos_yt.ipynb` |
+| 3.1.5 – Final language filtering | Language detection (English-only) | `06_English_videos.ipynb` |
+| 3.1.6 – Data pre-processing | Lemmatization, stopword removal, normalization | `07_Pre_processing.ipynb`, `src/PreProcessing/` |
+| 3.2 – Topic Modeling | BERTopic hyperparameter search & evaluation | `08_TM_parameters.ipynb` |
+| 3.2 | Topic modeling sampling (10% sample) | `09_TM_sample.ipynb` |
+| 3.2 | Optimal BERTopic model training & assignment | `10_Best_TM.ipynb` |
+| 3.2 | Merging topic outputs with full dataset | `11_Merging_tables.ipynb` |
+| 3.3 – Classifying remaining videos | Supervised classifier for macro-topics | `12_Macrotopic_Classifier.ipynb`, `src/classification_models/` |
+| 3.4 & 4 – Results data preparation | Consolidating topics, toxicity, and statistics | `13_Preparing_Results_Data.ipynb` |
+| 4 – Results | Final metrics, figures, and statistical plots assembly | `14_Results_Figures_and_Stats.ipynb` |
 
-> **Note:** Some notebooks share the same prefix number or exist as "copy" versions (e.g., `22_Macrotopics copy.ipynb`). These reflect iterations made during development. The versions referenced above (and listed without "copy" in the filename) correspond to the final results reported in the paper. We plan to clean these up in a future revision of the repository — see [Reproducibility Notes](#reproducibility-notes).
-
----
+> **Note:** The notebook pipeline was streamlined from original exploratory versions into a clean sequential structure (`01` through `14`). Legacy, exploratory, and duplicate notebooks from early iterations are stored in `notebooks/archive/`.
