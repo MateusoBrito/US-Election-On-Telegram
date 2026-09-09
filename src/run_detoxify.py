@@ -5,7 +5,7 @@ from tqdm import tqdm
 
 # --- Configuração ---
 INPUT_FILE = 'processed_df.csv'
-OUTPUT_FILE = 'data/videos_with_toxics.csv' ### MUDANÇA: Mudei o nome do arquivo de saída
+OUTPUT_FILE = 'data/videos_with_toxics.csv' 
 TEXT_COLUMN = 'clean_text' 
 BATCH_SIZE = 512
 # --------------------
@@ -15,7 +15,6 @@ print("Carregando o modelo Detoxify ('original')...")
 model = Detoxify('original', device='cuda') 
 
 print(f"Carregando dados de {INPUT_FILE} ")
-# --- MUDANÇA PRINCIPAL ---
 # Adiciona 'nrows' para ler apenas as primeiras 50k linhas
 df = pd.read_csv(INPUT_FILE)
 # --------------------
